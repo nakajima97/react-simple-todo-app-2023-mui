@@ -1,8 +1,16 @@
-import { AppBar, Box, Container, Typography, Toolbar } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Typography,
+  Toolbar,
+  TextField,
+} from '@mui/material';
 
 const App = (): JSX.Element => {
   return (
-    <Container>
+    <Container sx={{ display: 'grid', gap: '10px' }}>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -12,7 +20,14 @@ const App = (): JSX.Element => {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box>タスク追加欄</Box>
+      <Box sx={{ display: 'flex', gap: '10px' }}>
+        <TextField
+          label="追加するタスクを入力してください"
+          variant="standard"
+          sx={{ flexGrow: 1 }}
+        />
+        <Button variant="contained">タスクを追加する</Button>
+      </Box>
       <Box>タスク一覧</Box>
     </Container>
   );
