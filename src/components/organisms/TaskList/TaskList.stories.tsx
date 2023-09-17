@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import TaskList from '.';
+import TaskList from './TaskList';
 
 const meta = {
   title: 'component/organisms/TaskList',
