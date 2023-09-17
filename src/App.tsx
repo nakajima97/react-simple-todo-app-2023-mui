@@ -17,7 +17,17 @@ const App = (): JSX.Element => {
       return <Typography>タスクが0件です。</Typography>;
     }
 
-    return tasks.map((task, index) => <Box key={index}>{task}</Box>);
+    return tasks.map((task, index) => (
+      <Box
+        key={index}
+        sx={{ display: 'flex', gap: '10px', justifyContent: 'center' }}
+      >
+        <Typography align="left" sx={{ flexGrow: 1 }}>
+          {task}
+        </Typography>
+        <Button variant="contained">完了</Button>
+      </Box>
+    ));
   };
 
   return (
@@ -35,6 +45,7 @@ const App = (): JSX.Element => {
         <TextField
           label="追加するタスクを入力してください"
           variant="standard"
+          content="center"
           sx={{ flexGrow: 1 }}
         />
         <Button variant="contained">タスクを追加する</Button>
@@ -43,7 +54,7 @@ const App = (): JSX.Element => {
         <Box>
           <Typography variant="h4">タスク一覧</Typography>
         </Box>
-        <Box>{renderTodoList()}</Box>
+        <Box sx={{ display: 'grid', gap: '10px' }}>{renderTodoList()}</Box>
       </Box>
     </Container>
   );
