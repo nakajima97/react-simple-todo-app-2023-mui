@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AddTaskForm from '.';
+import AddTaskForm from './AddTaskForm';
 
 const meta = {
   title: 'component/organisms/AddTaskForm',
