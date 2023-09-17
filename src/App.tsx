@@ -11,11 +11,16 @@ const App = (): JSX.Element => {
     setTasks([...tasks, task]);
   };
 
+  const handleFinishTask = (key: number) => {
+    const newTasks = tasks.filter((_, index) => index !== key);
+    setTasks(newTasks);
+  };
+
   return (
     <Container sx={{ display: 'grid', gap: '10px' }}>
       <Header />
       <AddTaskForm handleAddTask={handleAddTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} handleFinishTask={handleFinishTask} />
     </Container>
   );
 };

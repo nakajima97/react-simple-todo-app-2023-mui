@@ -2,9 +2,10 @@ import { Box, Typography, Button } from '@mui/material';
 
 type Props = {
   tasks: string[];
+  handleFinishTask: (key: number) => void;
 };
 
-const TaskList = ({ tasks }: Props): JSX.Element => {
+const TaskList = ({ tasks, handleFinishTask }: Props): JSX.Element => {
   const renderTodoList = () => {
     if (tasks.length === 0) {
       return <Typography>タスクが0件です。</Typography>;
@@ -18,7 +19,14 @@ const TaskList = ({ tasks }: Props): JSX.Element => {
         <Typography align="left" sx={{ flexGrow: 1 }}>
           {task}
         </Typography>
-        <Button variant="contained">完了</Button>
+        <Button
+          variant="contained"
+          onClick={() => {
+            handleFinishTask(index);
+          }}
+        >
+          完了
+        </Button>
       </Box>
     ));
   };
