@@ -8,6 +8,7 @@ import {
   Toolbar,
   TextField,
 } from '@mui/material';
+import AddTaskForm from './components/organisms/AddTaskForm';
 import Header from './components/organisms/Header';
 
 const App = (): JSX.Element => {
@@ -34,7 +35,7 @@ const App = (): JSX.Element => {
   return (
     <Container sx={{ display: 'grid', gap: '10px' }}>
       <Header />
-
+      <AddTaskForm />
       <Box>
         <Box>
           <Typography variant="h4">タスク一覧</Typography>
