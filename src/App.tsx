@@ -1,37 +1,62 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Typography,
+  Toolbar,
+  TextField,
+} from '@mui/material';
 
 const App = (): JSX.Element => {
-  const [count, setCount] = useState(0);
+  const [tasks, setTasks] = useState<string[]>(['aaa', 'bbb', 'ccc']);
+
+  const renderTodoList = () => {
+    if (tasks.length === 0) {
+      return <Typography>タスクが0件です。</Typography>;
+    }
+
+    return tasks.map((task, index) => (
+      <Box
+        key={index}
+        sx={{ display: 'flex', gap: '10px', justifyContent: 'center' }}
+      >
+        <Typography align="left" sx={{ flexGrow: 1 }}>
+          {task}
+        </Typography>
+        <Button variant="contained">完了</Button>
+      </Box>
+    ));
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button
-          onClick={() => {
-            setCount((count) => count + 1);
-          }}
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Container sx={{ display: 'grid', gap: '10px' }}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+              Todo App
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Box sx={{ display: 'flex', gap: '10px' }}>
+        <TextField
+          label="追加するタスクを入力してください"
+          variant="standard"
+          content="center"
+          sx={{ flexGrow: 1 }}
+        />
+        <Button variant="contained">タスクを追加する</Button>
+      </Box>
+      <Box>
+        <Box>
+          <Typography variant="h4">タスク一覧</Typography>
+        </Box>
+        <Box sx={{ display: 'grid', gap: '10px' }}>{renderTodoList()}</Box>
+      </Box>
+    </Container>
   );
 };
 
