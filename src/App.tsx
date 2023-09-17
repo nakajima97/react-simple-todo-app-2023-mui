@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   AppBar,
   Box,
@@ -9,6 +10,16 @@ import {
 } from '@mui/material';
 
 const App = (): JSX.Element => {
+  const [tasks, setTasks] = useState<string[]>(['aaa', 'bbb', 'ccc']);
+
+  const renderTodoList = () => {
+    if (tasks.length === 0) {
+      return <Typography>タスクが0件です。</Typography>;
+    }
+
+    return tasks.map((task, index) => <Box key={index}>{task}</Box>);
+  };
+
   return (
     <Container sx={{ display: 'grid', gap: '10px' }}>
       <Box sx={{ flexGrow: 1 }}>
@@ -28,7 +39,12 @@ const App = (): JSX.Element => {
         />
         <Button variant="contained">タスクを追加する</Button>
       </Box>
-      <Box>タスク一覧</Box>
+      <Box>
+        <Box>
+          <Typography variant="h4">タスク一覧</Typography>
+        </Box>
+        <Box>{renderTodoList()}</Box>
+      </Box>
     </Container>
   );
 };
