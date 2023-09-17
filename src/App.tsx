@@ -8,6 +8,7 @@ import {
   Toolbar,
   TextField,
 } from '@mui/material';
+import Header from './components/organisms/Header';
 
 const App = (): JSX.Element => {
   const [tasks, setTasks] = useState<string[]>(['aaa', 'bbb', 'ccc']);
@@ -32,15 +33,7 @@ const App = (): JSX.Element => {
 
   return (
     <Container sx={{ display: 'grid', gap: '10px' }}>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              Todo App
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <Header />
       <Box sx={{ display: 'flex', gap: '10px' }}>
         <TextField
           label="追加するタスクを入力してください"
