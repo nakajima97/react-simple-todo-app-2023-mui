@@ -34,15 +34,7 @@ const App = (): JSX.Element => {
   return (
     <Container sx={{ display: 'grid', gap: '10px' }}>
       <Header />
-      <Box sx={{ display: 'flex', gap: '10px' }}>
-        <TextField
-          label="追加するタスクを入力してください"
-          variant="standard"
-          content="center"
-          sx={{ flexGrow: 1 }}
-        />
-        <Button variant="contained">タスクを追加する</Button>
-      </Box>
+
       <Box>
         <Box>
           <Typography variant="h4">タスク一覧</Typography>
