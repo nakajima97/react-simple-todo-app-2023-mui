@@ -26,7 +26,8 @@
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "string-width": "^6.1.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.0",
