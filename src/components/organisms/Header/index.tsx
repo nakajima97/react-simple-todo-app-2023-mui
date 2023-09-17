@@ -1,6 +1,6 @@
 import { AppBar, Box, Typography, Toolbar } from '@mui/material';
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
