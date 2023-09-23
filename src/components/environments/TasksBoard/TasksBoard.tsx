@@ -12,6 +12,12 @@ const TodoBoard = (): JSX.Element => {
   };
 
   const handleFinishTask = (key: number) => {
+    const localStorageValue = localStorage.getItem('finishTasks');
+    const finishTasks = JSON.parse(localStorageValue ?? '[]') as string[];
+    localStorage.setItem(
+      'finishTasks',
+      JSON.stringify([...finishTasks, tasks[key]])
+    );
     const newTasks = tasks.filter((_, index) => index !== key);
     setTasks(newTasks);
   };
