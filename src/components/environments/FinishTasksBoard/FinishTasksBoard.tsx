@@ -1,7 +1,10 @@
+import { Container } from '@mui/material';
+import Header from '../../organisms/Header/Header';
+
 const FinishTodoBoard = (): JSX.Element => (
-  <>
-    <div>完了したタスクを表示するよ</div>
-  </>
+  <Container sx={{ display: 'grid', gap: '10px' }}>
+    <Header />
+  </Container>
 );
 
 export default FinishTodoBoard;
