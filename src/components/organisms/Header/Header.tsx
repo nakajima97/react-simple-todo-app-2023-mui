@@ -53,7 +53,7 @@ const Header = (): JSX.Element => {
           <ListItem>
             <ListItemButton
               onClick={() => {
-                navigate('finish');
+                navigate('/finish');
               }}
             >
               <ListItemText primary="完了済みタスク" />
