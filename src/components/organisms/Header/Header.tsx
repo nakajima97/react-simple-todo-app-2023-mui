@@ -59,6 +59,15 @@ const Header = (): JSX.Element => {
               <ListItemText primary="完了済みタスク" />
             </ListItemButton>
           </ListItem>
+          <ListItem>
+            <ListItemButton
+              onClick={() => {
+                navigate('/config');
+              }}
+            >
+              <ListItemText primary="設定" />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Drawer>
     </Box>
