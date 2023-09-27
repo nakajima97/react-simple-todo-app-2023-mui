@@ -1,11 +1,11 @@
 import { Box, Container, Typography } from '@mui/material';
 import DeleteTaskButton from '../../organisms/DeleteTaskButton/DeleteTaskButton';
-import Header from '../../organisms/Header/Header';
+import Layout from '../../organisms/Layout/Layout';
 
 const ConfigPage = (): JSX.Element => {
   return (
     <Container>
-      <Header />
+      <Layout />
       <Box>
         <Typography variant="h3">データ削除</Typography>
         <DeleteTaskButton />

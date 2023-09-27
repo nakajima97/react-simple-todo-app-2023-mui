@@ -1,5 +1,5 @@
 import { Container, Typography } from '@mui/material';
-import Header from '../../organisms/Header/Header';
+import Layout from '../../organisms/Layout/Layout';
 
 const FinishTodoBoard = (): JSX.Element => {
   const localStorageValue = localStorage.getItem('finishTasks');
@@ -7,7 +7,7 @@ const FinishTodoBoard = (): JSX.Element => {
 
   return (
     <Container sx={{ display: 'grid', gap: '10px' }}>
-      <Header />
+      <Layout />
       <ul>
         {finishTasks.map((task, key) => (
           <li key={key}>{task}</li>

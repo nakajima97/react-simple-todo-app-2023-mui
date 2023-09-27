@@ -14,7 +14,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 
-const Header = (): JSX.Element => {
+const Layout = (): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -74,4 +74,4 @@ const Header = (): JSX.Element => {
   );
 };
 
-export default Header;
+export default Layout;

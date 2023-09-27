@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container } from '@mui/material';
 import AddTaskForm from '../../organisms/AddTaskForm/AddTaskForm';
-import Header from '../../organisms/Header/Header';
+import Layout from '../../organisms/Layout/Layout';
 import TaskList from '../../organisms/TaskList/TaskList';
 
 const TodoBoard = (): JSX.Element => {
@@ -24,7 +24,7 @@ const TodoBoard = (): JSX.Element => {
 
   return (
     <Container sx={{ display: 'grid', gap: '10px' }}>
-      <Header />
+      <Layout />
       <AddTaskForm handleAddTask={handleAddTask} />
       <TaskList tasks={tasks} handleFinishTask={handleFinishTask} />
     </Container>
