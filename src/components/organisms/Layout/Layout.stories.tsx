@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Header from './Header';
+import Layout from './Layout';
 
 const meta = {
   title: 'component/organisms/Header',
-  component: Header,
-} satisfies Meta<typeof Header>;
+  component: Layout,
+} satisfies Meta<typeof Layout>;
 export default meta;
 
-type Story = StoryObj<typeof Header>;
+type Story = StoryObj<typeof Layout>;
 
 export const Default: Story = {};
