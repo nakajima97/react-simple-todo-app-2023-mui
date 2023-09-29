@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { Container } from '@mui/material';
-import AddTaskForm from '../../organisms/AddTaskForm/AddTaskForm';
-import Layout from '../../organisms/Layout/Layout';
-import TaskList from '../../organisms/TaskList/TaskList';
+import TaskBoardTemplate from '../../templates/TasksBoradTemplate/TaskBoardTemplate';
 
 const TodoBoard = (): JSX.Element => {
   const [tasks, setTasks] = useState<string[]>([]);
@@ -23,11 +20,11 @@ const TodoBoard = (): JSX.Element => {
   };
 
   return (
-    <Container sx={{ display: 'grid', gap: '10px' }}>
-      <Layout />
-      <AddTaskForm handleAddTask={handleAddTask} />
-      <TaskList tasks={tasks} handleFinishTask={handleFinishTask} />
-    </Container>
+    <TaskBoardTemplate
+      tasks={tasks}
+      handleAddTask={handleAddTask}
+      handleFinishTask={handleFinishTask}
+    />
   );
 };
 
