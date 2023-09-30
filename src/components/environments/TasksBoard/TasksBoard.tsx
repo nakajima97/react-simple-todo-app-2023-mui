@@ -16,12 +16,25 @@ const TodoBoard = (): JSX.Element => {
   };
 
   const handleFinishTask = (key: number) => {
+    // 未完了タスクから削除
+    const localStorageTasksValueString = localStorage.getItem('tasks') ?? '[]';
+    const localStorageTasksValue = JSON.parse(
+      localStorageTasksValueString
+    ) as string[];
+    const localStorageNewTasksValue = localStorageTasksValue.filter(
+      (task) => task !== tasks[key]
+    );
+    localStorage.setItem('tasks', JSON.stringify(localStorageNewTasksValue));
+
+    // 完了済みタスク用のlocalStorageに保存
     const localStorageValue = localStorage.getItem('finishTasks');
     const finishTasks = JSON.parse(localStorageValue ?? '[]') as string[];
     localStorage.setItem(
       'finishTasks',
       JSON.stringify([...finishTasks, tasks[key]])
     );
+
+    // stateで持っているタスクから完了済みタスクを削除する
     const newTasks = tasks.filter((_, index) => index !== key);
     setTasks(newTasks);
   };
