@@ -9,6 +9,7 @@ const DeleteTaskButton = (): JSX.Element => {
     }
 
     localStorage.removeItem('finishTasks');
+    localStorage.removeItem('tasks');
 
     window.alert('タスクを削除しました。');
   };
