@@ -1,5 +1,5 @@
 import { Container } from '@mui/material';
-import DeleteTask from '../../organisms/DeleteTask/DeleteTask';
+import DeleteTask from '../../ecosystems/DeleteTask/DeleteTask';
 import Layout from '../../organisms/Layout/Layout';
 
 const ConfigPage = (): JSX.Element => {

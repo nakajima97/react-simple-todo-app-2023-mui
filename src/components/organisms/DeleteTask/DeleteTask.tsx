@@ -1,19 +1,11 @@
 import { Box, Typography, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const DeleteTask = (): JSX.Element => {
-  const handleDeleteTask = () => {
-    const confirm = window.confirm('本当にすべてのタスクを削除しますか？');
-    if (!confirm) {
-      return true;
-    }
+type Props = {
+  handleDeleteTask: () => void;
+};
 
-    localStorage.removeItem('finishTasks');
-    localStorage.removeItem('tasks');
-
-    window.alert('タスクを削除しました。');
-  };
-
+const DeleteTask = ({ handleDeleteTask }: Props): JSX.Element => {
   return (
     <>
       <Box>
@@ -22,7 +14,9 @@ const DeleteTask = (): JSX.Element => {
           variant="contained"
           color="error"
           startIcon={<DeleteIcon />}
-          onClick={() => handleDeleteTask()}
+          onClick={() => {
+            handleDeleteTask();
+          }}
         >
           データ削除
         </Button>
