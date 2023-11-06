@@ -1,18 +1,12 @@
-import { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 
 type Props = {
-  handleAddTask: (task: string) => void;
+  onClick: (text: string) => void;
+  text: string;
+  setText: (text: string) => void;
 };
 
-const AddTaskForm = ({ handleAddTask }: Props): JSX.Element => {
-  const [text, setText] = useState('');
-
-  const onClick = (text: string) => {
-    handleAddTask(text);
-    setText('');
-  };
-
+const AddTaskForm = ({ onClick, text, setText }: Props): JSX.Element => {
   return (
     <Box sx={{ display: 'flex', gap: '10px' }}>
       <TextField
