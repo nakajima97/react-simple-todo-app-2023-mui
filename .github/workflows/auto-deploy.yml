@@ -34,4 +34,4 @@ jobs:
 
       - name: scp
         run: |
-          scp -r -o "StrictHostKeyChecking=no" -i secret_key ./public/dist $USER@$HOST:$DEPLOY_PATH
+          scp -r -o "StrictHostKeyChecking=no" -i secret_key ./dist $USER@$HOST:$DEPLOY_PATH
