@@ -6,6 +6,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      HOST: ${{ secrets.SSH_HOST }}
+      USER: ${{ secrets.SSH_USERNAME }}
+      SECRET_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
 
     steps:
       - name: Checkout code
@@ -22,11 +27,11 @@ jobs:
       - name: Build the React app
         run: yarn build
 
-      - name: SCP files to server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ./dist/
-          target: ${{ secrets.DEPLOY_PATH }}
+      - name: create secret key
+        run: |
+          echo "$SECRET_KEY" > secret_key
+          chmod 600 secret_key
+
+      - name: scp
+        run: |
+          scp -r -o "StrictHostKeyChecking=no" -i secret_key ./public/dist $USER@$HOST:$DEPLOY_PATH
