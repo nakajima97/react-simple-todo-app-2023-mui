@@ -1,0 +1,40 @@
+name: Deploy to Server
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOST: ${{ secrets.SSH_HOST }}
+      USER: ${{ secrets.SSH_USERNAME }}
+      SECRET_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build the React app
+        run: yarn build
+
+      - name: create secret key
+        run: |
+          echo "$SECRET_KEY" > secret_key
+          chmod 600 secret_key
+
+      - name: scp
+        run: |
+          scp -r -o "StrictHostKeyChecking=no" -i secret_key ./dist/* $USER@$HOST:$DEPLOY_PATH
